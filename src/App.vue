@@ -1,28 +1,70 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <custom-btn-group :btns='btns'></custom-btn-group>
+    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import CustomBtnGroup from './components/CustomBtnGroup'
+  export default {
+    name: 'app',
+    components: {CustomBtnGroup},
+    comments: ['CustomBtnGroup'],
+    data() {
+      return {
+        btns: [
+          {
+            text: '添加',
+            icon: 'el-icon-plus',
+            handler: () => {
+              alert('添加')
+            }
+          },{
+            text: '删除',
+            icon: 'el-icon-delete',
+            handler: () => {
+              alert('删除')
+            }
+          },{
+            text: '修改',
+            icon: 'el-icon-edit',
+            handler: () => {
+              alert('修改')
+            }
+          },{
+            text: '上移',
+            icon: 'el-icon-arrow-down',
+            handler: () => {
+              alert('上移')
+            }
+          },{
+            text: '下移',
+            icon: 'el-icon-arrow-up',
+            handler: () => {
+              alert('下移')
+            }
+          }
+        ],
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+        editor: window.ClassicEditor,
+        editorData: '<p>Content of the editor.</p>',
+        editorConfig: {
+          ready: () => {
+
+          },
+          ckfinder: {
+            uploadUrl: 'aliyun.com',
+            uploadFunc: {
+              handler: (resolve) => {
+                  resolve({
+                    default: 'https://www.baidu.com/img/bd_logo1.png'
+                  })
+              }
+            }
+          }
+        }
+      };
+    }
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
