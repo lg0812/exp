@@ -1,0 +1,65 @@
+{
+  "list": [
+    {
+      "catalogId": 1,
+      "title": "root",
+      "content": "",
+      "children": [
+        2,
+        3
+      ],
+      "parentId": null,
+      "root": true,
+      "isDir": true,
+      "modifier": "",
+      "modifierTime": ""
+    },
+    {
+      "catalogId": 2,
+      "title": "id2",
+      "content": "",
+      "children": [
+        5,
+        4
+      ],
+      "parentId": 1,
+      "root": false,
+      "isDir": true,
+      "modifier": "",
+      "modifierTime": ""
+    },
+    {
+      "catalogId": 3,
+      "title": "id3",
+      "content": "",
+      "children": [],
+      "parentId": 1,
+      "root": false,
+      "isDir": false,
+      "modifier": "",
+      "modifierTime": ""
+    },
+    {
+      "catalogId": 4,
+      "title": "id4",
+      "content": "",
+      "children": [],
+      "parentId": 2,
+      "root": false,
+      "isDir": false,
+      "modifier": "",
+      "modifierTime": ""
+    },
+    {
+      "catalogId": 5,
+      "title": "id5",
+      "content": "",
+      "children": [],
+      "parentId": 2,
+      "root": false,
+      "isDir": false,
+      "modifier": "",
+      "modifierTime": ""
+    }
+  ]
+}
