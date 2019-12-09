@@ -98,7 +98,7 @@ public class CatalogDao {
         // 平级移动
         if (old.getCatalogId().equals(parent.getCatalogId())) {
             query.clear();
-            query.put("catalogId", parent.getParentId());
+            query.put("catalogId", parent.getCatalogId());
             DBObject parentDBObject = mongoCollection.findOne(query);
             // parentDBObject 为空，表示父节点不存在
             // modifierTime 不相等，表示父节点被改动过（位置移动、子节点删除）
@@ -127,7 +127,7 @@ public class CatalogDao {
         // 非平级移动
         else {
             query.clear();
-            query.put("catalogId", parent.getParentId());
+            query.put("catalogId", parent.getCatalogId());
             DBObject parentDBObject = mongoCollection.findOne(query);
             // parentDBObject 为空，表示父节点不存在
             // modifierTime 不相等，表示父节点被改动过（位置移动、子节点删除）
@@ -162,6 +162,14 @@ public class CatalogDao {
             update.put("modifierTime", dateStr());
             mongoCollection.update(query, new BasicDBObject("$set", update));
         }
+
+        query.clear();
+        query.put("catalogId", tempCurrent.getCatalogId());
+
+        BasicDBObject up = new BasicDBObject();
+        up.put("parentId", parent.getCatalogId());
+
+        mongoCollection.update(query, new BasicDBObject("$set", up));
 
         return "更新成功";
     }
