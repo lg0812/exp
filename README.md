@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+idea plugins: https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/master/plugins-develop.md
